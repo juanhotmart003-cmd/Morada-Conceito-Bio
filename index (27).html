@@ -1,0 +1,181 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Morada Conceito</title>
+<meta name="description" content="Tecidos, cortinas e persianas sob medida no Sudoeste, Brasília.">
+<meta name="theme-color" content="#1C1510">
+<link rel="icon" href="img/logo-m.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Jost:wght@300;400&display=swap">
+<style>
+/* Layout: uma tela só. O showroom ao fundo, uma persiana que se abre, e os links como lâminas de madeira finas. Visual único, escuro, intencional. */
+:root{
+  --night:#1C1510;      /* madeira à noite */
+  --linen:#F1E8DB;      /* linho */
+  --linen-dim:rgba(241,232,219,.66);
+  --hair:rgba(241,232,219,.18);
+  --brass:#C9A57A;      /* latão */
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Avenir Next","Century Gothic",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--night)}
+body{margin:0;color:var(--linen);font-family:var(--body);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+
+/* fundo */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--night)}
+.bg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.08);animation:drift 22s ease-out forwards}
+.bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(28,21,16,.35) 0%,rgba(28,21,16,.55) 32%,rgba(28,21,16,.9) 62%,var(--night) 100%)}
+@keyframes drift{to{transform:scale(1)}}
+.slats{position:fixed;inset:0;z-index:5;display:grid;grid-template-rows:repeat(16,1fr);pointer-events:none}
+.slats i{background:linear-gradient(180deg,#3a2b20,#1f1711);transform-origin:50% 0;transform:scaleY(.55);animation:lift 1.3s cubic-bezier(.65,0,.25,1) forwards;animation-delay:calc(var(--i)*40ms + .15s)}
+@keyframes lift{to{transform:scaleY(0)}}
+
+/* coluna */
+.wrap{position:relative;z-index:2;min-height:100dvh;max-width:440px;margin:0 auto;padding:clamp(28px,7vh,64px) 22px 28px;display:flex;flex-direction:column;gap:28px}
+
+.id{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding-top:2vh}
+.mono{width:auto;height:78px;filter:drop-shadow(0 2px 14px rgba(0,0,0,.35))}
+.mono text{font-family:var(--display);font-size:46px;fill:var(--linen)}
+.mono path{fill:none;stroke:var(--linen);stroke-width:1.1}
+h1{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(46px,13vw,58px);line-height:.95;letter-spacing:-.005em;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+h1 em{font-style:italic;color:var(--brass)}
+.kind{font-size:10.5px;letter-spacing:.38em;text-transform:uppercase;color:var(--linen-dim);padding-left:.38em}
+.proof{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:4px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid rgba(201,165,122,.5);border-radius:40px;background:rgba(28,21,16,.42);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-size:12px;letter-spacing:.02em;color:var(--linen);white-space:nowrap;transition:border-color .3s}
+.chip:hover{border-color:var(--brass)}
+.chip .stars{color:var(--brass);letter-spacing:1px;font-size:10px}
+.chip b{font-family:var(--display);font-weight:400;font-size:15px;line-height:1;color:var(--brass)}
+
+/* links */
+.links{display:flex;flex-direction:column}
+.primary{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--linen);color:var(--night);padding:19px 22px;margin-bottom:10px;transition:background .3s}
+.primary:hover{background:#fff}
+.primary span{font-family:var(--display);font-size:20px;line-height:1.1}
+.primary small{display:block;font-family:var(--body);font-size:12px;letter-spacing:.04em;color:#6b5a4b;margin-top:3px}
+.row{display:flex;align-items:center;gap:14px;width:100%;background:none;border:0;border-bottom:1px solid var(--hair);padding:17px 2px;text-align:left;cursor:pointer;transition:padding .35s,color .35s}
+.row:first-of-type{border-top:1px solid var(--hair)}
+.row:hover{padding-left:10px;color:var(--brass)}
+.row .l{flex:1;font-family:var(--display);font-style:italic;font-size:19px}
+.row .r{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--linen-dim)}
+.row svg{flex:none;opacity:.7}
+
+/* projetos */
+.proj h2{margin:0 0 12px;font-size:10.5px;font-weight:400;letter-spacing:.38em;text-transform:uppercase;color:var(--linen-dim);display:flex;justify-content:space-between}
+.strip{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -22px;padding:0 22px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip button{flex:none;width:28%;aspect-ratio:3/4;padding:0;border:0;background:#2a2019;cursor:zoom-in;scroll-snap-align:start;overflow:hidden}
+.strip img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.strip button:hover img{transform:scale(1.05)}
+
+footer{margin-top:auto;text-align:center;display:flex;flex-direction:column;gap:6px;padding-top:8px}
+footer .motto{font-family:var(--display);font-style:italic;font-size:17px;color:var(--brass)}
+footer small{font-size:11.5px;color:var(--linen-dim);letter-spacing:.04em;line-height:1.6}
+
+/* visor */
+.view{position:fixed;inset:0;z-index:20;background:rgba(14,10,8,.96);display:flex;align-items:center;justify-content:center;padding:56px 0 24px}
+.view img,.view video{max-width:100%;max-height:100%;object-fit:contain}
+.view video{height:100%;width:auto}
+.close{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:44px;height:44px;border-radius:50%;border:1px solid var(--hair);background:none;cursor:pointer;font-size:20px;line-height:1}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:none;cursor:pointer;font-family:var(--display);font-size:30px;color:var(--linen-dim)}
+.nav.p{left:4px}.nav.n{right:4px}
+.cap{position:absolute;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;font-family:var(--display);font-style:italic;font-size:15px;color:var(--linen-dim)}
+
+a:focus-visible,button:focus-visible{outline:1px solid var(--brass);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.slats{display:none}.bg img{animation:none;transform:none}.row,.strip img{transition:none}}
+@media (min-height:820px){.wrap{gap:34px}}
+/* mais leitura: textos pequenos um pouco mais fortes e claros */
+:root{--linen-dim:rgba(241,232,219,.86);--hair:rgba(241,232,219,.24)}
+.kind{font-size:11.5px;font-weight:400;color:var(--linen);text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.chip{font-size:13px;font-weight:400}
+.chip .stars{font-size:11px}
+.chip b{font-size:16px}
+.primary small{font-size:12.5px;font-weight:400;color:#5a4a3c}
+.row .l{font-size:20.5px;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+.row .r{font-size:11.5px;font-weight:400}
+.proj h2{font-size:11px;font-weight:400}
+footer small{font-size:12.5px;font-weight:400}
+footer .motto{font-size:18px}
+@media (max-width:400px){.chip{font-size:12px;padding-inline:9px}.chip b{font-size:15px}.chip .stars{font-size:10px}.kind{font-size:10.5px;letter-spacing:.3em}}
+.chip{padding-block:10px;min-height:40px}
+@media (max-width:380px){.wrap{padding-left:18px;padding-right:18px}.strip{margin:0 -18px;padding:0 18px}.chip{padding-inline:10px;font-size:11.5px;gap:5px}.chip .stars{letter-spacing:0}.proof{gap:6px}}
+</style>
+</head><body>
+
+<div class="bg" aria-hidden="true"><img src="img/showroom-persiana-madeira.jpg" alt=""></div>
+<div class="slats" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i></div>
+
+<main class="wrap">
+  <header class="id">
+    <img class="mono" src="img/logo-m.svg" alt="Logo Morada Conceito">
+    <h1>Morada <em>Conceito</em></h1>
+    <span class="kind">Tecidos · Cortinas · Persianas</span>
+    <div class="proof">
+      <a class="chip" href="https://share.google/UffGUmNy0HZqFIpE2" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span><b>5,0</b><span>no Google</span></a>
+      <span class="chip"><b>19</b><span>anos em Brasília</span></span>
+    </div>
+  </header>
+
+  <nav class="links" aria-label="Links">
+    <a class="primary" href="https://wa.me/5561994424000?text=Ol%C3%A1%2C%20Regina!%20Vim%20pelo%20Instagram%20e%20gostaria%20de%20agendar%20uma%20visita%20t%C3%A9cnica." target="_blank" rel="noopener">
+      <span>Agendar visita técnica<small>Medição e consultoria no seu ambiente</small></span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <a class="row" href="https://wa.me/5561994424000?text=Ol%C3%A1!%20Sou%20arquiteto(a)%20e%20gostaria%20de%20atendimento%20para%20um%20projeto." target="_blank" rel="noopener"><span class="l">Arquitetos e designers</span><span class="r">Projetos</span></a>
+    <button class="row" type="button" id="tourBtn"><span class="l">Tour pelo showroom</span><span class="r">Vídeo</span></button>
+    <a class="row" href="https://www.google.com/maps/search/?api=1&query=Morada%20Conceito%20Cortinas%20e%20Persianas%20CLSW%20104%20Sudoeste%20Bras%C3%ADlia" target="_blank" rel="noopener"><span class="l">Como chegar</span><span class="r">Sudoeste</span></a>
+    <a class="row" href="https://share.google/UffGUmNy0HZqFIpE2" target="_blank" rel="noopener"><span class="l">Avaliações de clientes</span><span class="r">5,0 ★</span></a>
+    <a class="row" href="https://moradatecidosecortinas.com.br/" target="_blank" rel="noopener"><span class="l">Site oficial</span><span class="r">Catálogo</span></a>
+  </nav>
+
+  <section class="proj" aria-label="Projetos">
+    <h2><span>Projetos</span><span>Toque para ampliar</span></h2>
+    <div class="strip" id="strip">
+      <button type="button" data-i="0"><img src="img/showroom-luminaria.jpg" alt="Persiana de madeira com cortina de linho" loading="lazy"></button>
+      <button type="button" data-i="1"><img src="img/detalhe-madeira-linho.jpg" alt="Madeira e linho" loading="lazy"></button>
+      <button type="button" data-i="2"><img src="img/poltrona-double-vision.jpg" alt="Double vision com poltrona bouclé" loading="lazy"></button>
+      <button type="button" data-i="3"><img src="img/clinica-double-vision.jpg" alt="Double vision com vista da cidade" loading="lazy"></button>
+      <button type="button" data-i="4"><img src="img/showroom-movimento.jpg" alt="Persianas de madeira do piso ao teto" loading="lazy"></button>
+      <button type="button" data-i="5"><img src="img/detalhe-tapete.jpg" alt="Tecidos e tapete" loading="lazy"></button>
+    </div>
+  </section>
+
+  <footer>
+    <span class="motto">Onde o sol faz morada</span>
+    <small>CLSW 104 · Ed. Portal Plaza · Sudoeste, Brasília<br>CasaCor Brasília 2026<br>Club&amp;Casa Design Awards 2025</small>
+  </footer>
+</main>
+
+<div class="view" id="view" hidden>
+  <button class="close" type="button" id="close" aria-label="Fechar">×</button>
+  <button class="nav p" type="button" id="prev" aria-label="Anterior">‹</button>
+  <div id="stage" style="height:100%;width:100%;display:flex;align-items:center;justify-content:center"></div>
+  <button class="nav n" type="button" id="next" aria-label="Próxima">›</button>
+  <div class="cap" id="cap"></div>
+</div>
+
+<script>
+(function(){
+  var imgs=[].slice.call(document.querySelectorAll('#strip img'));
+  var view=document.getElementById('view'),stage=document.getElementById('stage'),cap=document.getElementById('cap');
+  var prev=document.getElementById('prev'),next=document.getElementById('next'),cur=0;
+  function show(i){cur=(i+imgs.length)%imgs.length;stage.innerHTML='';var im=new Image();im.src=imgs[cur].src;im.alt=imgs[cur].alt;stage.appendChild(im);cap.textContent=imgs[cur].alt;prev.hidden=next.hidden=false;view.hidden=false;}
+  function close(){view.hidden=true;stage.innerHTML='';}
+  document.getElementById('strip').addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(+b.dataset.i);});
+  prev.onclick=function(){show(cur-1)};next.onclick=function(){show(cur+1)};
+  document.getElementById('close').onclick=close;
+  document.getElementById('tourBtn').onclick=function(){
+    stage.innerHTML='<video src="img/tour-showroom.mp4" poster="img/tour-poster.jpg" controls playsinline autoplay></video>';
+    cap.textContent='';prev.hidden=next.hidden=true;view.hidden=false;
+    var v=stage.querySelector('video');var p=v.play();if(p&&p.catch)p.catch(function(){});
+  };
+  document.addEventListener('keydown',function(e){if(view.hidden)return;if(e.key==='Escape')close();if(!prev.hidden&&e.key==='ArrowLeft')show(cur-1);if(!next.hidden&&e.key==='ArrowRight')show(cur+1);});
+  var sx=0;view.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  view.addEventListener('touchend',function(e){if(prev.hidden)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));});
+})();
+</script>
+</body></html>
